@@ -1,0 +1,13 @@
+#page-vote-manager {
+  width: 100vw;
+  height: 100vh;
+}
+
+#conference-window {
+  margin: 5rem 10rem;
+  width: 65%;
+  height: 55%;
+  background-color: #fff;
+  border-radius: 1%;
+  text-align: center;
+}
