@@ -5,12 +5,14 @@ import VoteLogin from "./pages/VoteLogin";
 
 import Home from "./pages/Home";
 import VoteManager from "./pages/VoteManager";
+import VoteConference from "./pages/VoteConference";
 
 function Routes() {
   return (
     <BrowserRouter>
       <Route path="/" exact component={Home} />
-      <Route path="/vote" component={VoteLogin} />
+      <Route path="/vote" exact component={VoteLogin} />
+      <Route path="/vote/conference" component={VoteConference} />
       <Route path="/manage-election" component={VoteManager} />
     </BrowserRouter>
   );

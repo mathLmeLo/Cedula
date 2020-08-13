@@ -11,8 +11,8 @@
 }
 
 .logo-container img {
-  height: 10rem;
-  color: var(--color-title-in-primary);
+  height: 40rem;
+  margin: 0;
 }
 
 .hero-image {
@@ -116,7 +116,7 @@
   }
 
   .logo-container img {
-    height: 30rem;
+    height: 33rem;
   }
 
   .hero-image {

@@ -1,8 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-import logoImg from "../../assets/images/logo.png";
-import backIcon from "../../assets/images/icons/back.svg";
+import logoImg from "../../assets/images/logos/CEDULA2.png";
 import { AiOutlineRollback } from "react-icons/ai";
 
 import "./styles.css";

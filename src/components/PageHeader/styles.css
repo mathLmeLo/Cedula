@@ -24,7 +24,7 @@
 }
 
 .page-header .top-bar-container > img {
-  height: 1.6rem;
+  height: 8rem;
 }
 
 .page-header .header-content {
@@ -35,7 +35,7 @@
 }
 
 .page-header .header-content strong {
-  font: 700 3.6rem Archivo;
+  font: 700 3.6rem Inconsolata;
   line-height: 4.2rem;
   color: var(--color-title-in-primary);
 }
@@ -46,7 +46,7 @@
   }
 
   .page-header .top-bar-container {
-    max-width: 1100px;
+    max-width: 1920px;
   }
 
   .page-header .header-content {

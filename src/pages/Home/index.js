@@ -5,7 +5,7 @@ import { GiVote } from "react-icons/gi";
 import { GrUserManager } from "react-icons/gr";
 import { AiOutlineClockCircle } from "react-icons/ai";
 
-import cedulaImg from "../../assets/images/logo.png";
+import cedulaImg from "../../assets/images/logos/CEDULA2.png";
 import voteImg from "../../assets/images/vote.png";
 
 import "./styles.css";
