@@ -8,7 +8,7 @@
   height: 100%;
   width: 100%;
   margin-top: 5rem;
-  justify-content: center;
+  align-items: center;
 }
 
 #login-box {
@@ -17,7 +17,7 @@
   border-radius: 0.8rem;
   margin: 2.4rem;
   overflow: hidden;
-  height: 36rem;
+  height: 26rem;
   width: 40rem;
 }
 
@@ -31,7 +31,9 @@
 }
 
 .login-form button {
-  margin: 2rem;
+  margin-top: 2rem;
+  margin-left: 10rem;
+  margin-right: 10rem;
   padding: 1rem;
 }
 

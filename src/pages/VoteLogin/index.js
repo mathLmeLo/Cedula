@@ -1,10 +1,11 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
 import { connect } from "react-redux";
-import { addUser } from "../../store/actions/session";
+import { addUser, changeMyUser } from "../../store/actions/session";
 
 import PageHeader from "../../components/PageHeader";
+import VoteConference from "../../components/VoteConference";
 
 import "./styles.css";
 
@@ -19,17 +20,35 @@ const getUniqueID = () => {
 
 function VoteLogin(props) {
   const [name, setName] = useState("");
-  const { sessionId, userQueue } = props;
+  const [myID, setMyID] = useState("");
+  const [isMyTurn, setIsMyTurn] = useState(false);
+  const [requested, setRequested] = useState(false);
+  const { sessionId, currentVoter } = props;
 
   const handleRequest = (e) => {
     e.preventDefault();
-    const myID = getUniqueID;
+    const id = getUniqueID();
+    setMyID(myID);
     if (name.length > 0) {
-      props.enterVoteQueue(myID, name);
+      props.enterVoteQueue({ id, name });
+      console.log({ id, name });
+      setRequested(true);
     }
   };
 
-  return (
+  useEffect(() => {
+    console.log(currentVoter);
+  });
+
+  useEffect(() => {
+    if (currentVoter.id === myID && myID.length > 0) {
+      setIsMyTurn(true);
+    }
+  }, [currentVoter, myID]);
+
+  return requested ? (
+    <VoteConference isMyTurn={isMyTurn} sessionId={sessionId} />
+  ) : (
     <div id="page-voter-login" className="container">
       <PageHeader title="Bem vindo. Por favor, identifique-se." />
       <div id="box">
@@ -68,14 +87,14 @@ function VoteLogin(props) {
 function mapStateToProps(state) {
   return {
     sessionId: state.session.sessionId,
-    userQueue: state.session.userQueue,
+    currentVoter: state.session.currentVoter,
   };
 }
 
 function mapDispatchToProps(dispatch) {
   return {
-    enterVoteQueue(id, name) {
-      const action = addUser(id, name);
+    enterVoteQueue(user) {
+      const action = changeMyUser(user);
       dispatch(action);
     },
   };

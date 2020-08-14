@@ -3,11 +3,24 @@
   height: 100vh;
 }
 
-#meet {
+.content {
+  height: 100%;
+  width: 100%;
+  margin-top: 2rem;
+  display: flex;
+}
+
+.conference {
   margin: 5rem 10rem;
   width: 65%;
   height: 55%;
   background-color: #fff;
   border-radius: 1%;
   text-align: center;
+}
+
+@media (min-width: 700px) {
+  #page-vote-conference {
+    max-width: 100vw;
+  }
 }

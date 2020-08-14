@@ -1,18 +1,15 @@
 import {
   SESSIONID_CHANGE,
   CURRENT_VOTER_CHANGE,
-  ADD_USER,
-  REMOVE_USER,
+  MY_USER_CHANGE,
+  QUEUE_LENGHT_CHANGE,
 } from "../actions/actionTypes";
 
 const initialState = {
   sessionId: "",
-  userQueue: [
-    {
-      id: "Vazio",
-      name: "Vazio",
-    },
-  ],
+  myUser: {},
+  currentVoter: {},
+  queueLenght: 0,
 };
 
 export default function (state = initialState, action) {
@@ -25,12 +22,17 @@ export default function (state = initialState, action) {
     case CURRENT_VOTER_CHANGE:
       return {
         ...state,
-        userQueue: state.userQueue.slice(1),
+        currentVoter: action.payload,
       };
-    case ADD_USER:
+    case MY_USER_CHANGE:
       return {
         ...state,
-        userQueue: [...state.userQueue, action.payload],
+        myUser: action.payload,
+      };
+    case QUEUE_LENGHT_CHANGE:
+      return {
+        ...state,
+        queueLenght: action.payload,
       };
     default:
       return state;

@@ -1,8 +1,8 @@
 import {
   SESSIONID_CHANGE,
   CURRENT_VOTER_CHANGE,
-  ADD_USER,
-  REMOVE_USER,
+  MY_USER_CHANGE,
+  QUEUE_LENGHT_CHANGE,
 } from "./actionTypes";
 
 // Action Creator
@@ -13,18 +13,28 @@ export function changeSession(sessionID) {
   };
 }
 
-export function changeVoter() {
+export function changeVoter(voter) {
   return {
     type: CURRENT_VOTER_CHANGE,
+    payload: voter,
   };
 }
 
-export function addUser(voterID, voterName) {
+export function changeMyUser(user) {
   return {
-    type: ADD_USER,
-    payload: {
-      id: voterID,
-      name: voterName,
-    },
+    type: MY_USER_CHANGE,
+    payload: [
+      {
+        id: user.id,
+        name: user.name,
+      },
+    ],
+  };
+}
+
+export function changeQueueLenght(lenght) {
+  return {
+    type: QUEUE_LENGHT_CHANGE,
+    payload: lenght,
   };
 }

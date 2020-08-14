@@ -4,6 +4,7 @@ import { connect } from "react-redux";
 import { changeSession, changeVoter } from "../../store/actions/session";
 
 import PageHeader from "../../components/PageHeader";
+import Connection from "../../components/Connection";
 
 import {
   startVideoConf,
@@ -14,19 +15,13 @@ import {
 import "./styles.css";
 
 function VoteManager(props) {
-  const { sessionId, userQueue } = props;
+  const { sessionId } = props;
 
   const handleSubmit = (e) => {
     e.preventDefault();
     const id = sessionId;
     if (id.length > 0) {
       startVideoConf(id);
-    }
-  };
-
-  const handleNextVoter = () => {
-    if (userQueue.length > 1) {
-      props.getNextVoter();
     }
   };
 
@@ -53,15 +48,11 @@ function VoteManager(props) {
         <button type="button" onClick={() => joinVideoConf(sessionId)}>
           Entrar em uma Seção
         </button>
-        <button type="button" onClick={handleNextVoter}>
-          Receber Próximo Eleitor
-        </button>
       </form>
       <div id="content">
         <div id="meet">Aqui fica o V4H</div>
         <div className="current-voter">
-          <h1>ID de eleitor: {userQueue[0].id}</h1>
-          <h1>Nome do eleitor: {userQueue[0].name}</h1>
+          <Connection />
         </div>
       </div>
     </div>
